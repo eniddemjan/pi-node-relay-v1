@@ -26,20 +26,50 @@ app.get("/send", function(request, response){
     console.log("State " + queryData.state + " received.");
 
     // Apply command
-    if (queryData.state == 'on') {
+    if (queryData.state == 'ona') {
       gpio.open(7, "output", function(err) {     
         gpio.write(7, 1, function() {  
             gpio.close(7);                   
         });
     });
     }
-    if (queryData.state == 'off') {
+    if (queryData.state == 'offa') {
     gpio.open(7, "output", function(err) {     
         gpio.write(7, 0, function() {  
             gpio.close(7);                   
         });
     });
     } 
+    
+       if (queryData.state == 'onb') {
+      gpio.open(11, "output", function(err) {     
+        gpio.write(11, 1, function() {  
+            gpio.close(11);                   
+        });
+    });
+    }
+    if (queryData.state == 'offb') {
+    gpio.open(11, "output", function(err) {     
+        gpio.write(11, 0, function() {  
+            gpio.close(11);                   
+        });
+    });
+    }
+    
+       if (queryData.state == 'onc') {
+      gpio.open(12, "output", function(err) {     
+        gpio.write(12, 1, function() {  
+            gpio.close(12);                   
+        });
+    });
+    }
+    if (queryData.state == 'offc') {
+    gpio.open(12, "output", function(err) {     
+        gpio.write(12, 0, function() {  
+            gpio.close(12);                   
+        });
+    });
+    }
     
     // Answer
     response.writeHead(200, {"Content-Type": "text/html"});
